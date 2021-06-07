@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap');
 
 * {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -15,7 +15,7 @@
 body {
     background-color: white;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
 }
 
 header {
@@ -31,7 +31,7 @@ header img {
     width: 36px;
 }
 
-nav {
+.barra {
     width: 480px;
 }
 
@@ -62,6 +62,10 @@ nav {
     text-decoration: line-through;
 }
 
+.burgermenu {
+    display: none;
+}
+
 .titulo {
     padding: 5.1% 13.9% 0;
 }
@@ -89,20 +93,23 @@ nav {
     display: none;
 }
 
-.titulo button {
+.titulo .conoce {
     width: 226px;
     height: 56px;
     background-color: #00F3BB;
     margin: 56px 70.4% 0 0;
     border: none;
-}
-
-.titulo button a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 226px;
-    height: 56px;
+}
+
+.titulo .conoce a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     text-decoration: none;
     font-size: 18px;
     color: #060A24;
@@ -110,6 +117,11 @@ nav {
     font-weight: 500;
     border: none;
 }
+
+.titulo .conoce a:hover {
+    background-image: linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);
+    color: white;
+} 
 
 .episodios {
     clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%);
@@ -144,16 +156,16 @@ h2 {
 .nosotros {
     display: flex;
     padding: 0 13.9%;
+    margin: -170px 0 64px;
 }
 
 .nosotros .imagen {
     width: 50%;
-    height: 491.4px;
 }
 
 .nosotros img {
     position: relative;
-    top: -168.6px;
+    top: 5px;
     width: 90%;
     padding-right: 62.4px;
 }
@@ -161,7 +173,7 @@ h2 {
 .nosotros .texto {
     width: 50%;
     padding-right: 66px;
-    margin-top: 20.4px;
+    margin-top: 190px;
 }
 
 .nosotros h2 {
@@ -178,16 +190,17 @@ h2 {
 }
 
 .entrevistas h2 {
-    margin: 64px 0 36px;
+    margin-bottom: 36px;
     padding-left: 200px;
 }
 
 .entrevistas img {
     margin: -3px -2px;
+    width: 33.3%;
 }
 
 .topicos {
-    padding: 64px 200px 34px;
+    padding: 64px 13.9% 34px;
 }
 
 .topicos h2 {
@@ -197,7 +210,7 @@ h2 {
 .topicos .container {
     display: flex;
     align-items: stretch;
-    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .container div {
@@ -239,18 +252,23 @@ h2 {
     margin-bottom: 36px;
 }
 
-.novedades button {
+.novedades .escucha {
     width: 345px;
     height: 56px;
     background: #00F3BB;
     border: none;
-}
-
-.novedades button a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.novedades .escucha a {
     font-size: 18px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #060A24;
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 500;
@@ -258,7 +276,7 @@ h2 {
     text-decoration: none;
 }
 
-button:hover {
+.escucha a:hover {
     background-image: linear-gradient(225deg, #0000FE 0%, #00F0B8 100%);
     color: white;
 }
@@ -272,6 +290,7 @@ footer {
 .copyright {
     color: #060A24;
     font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
 }
 
 footer div {
@@ -280,18 +299,109 @@ footer div {
     justify-content: space-between;
 }
 
+footer a {
+    color: #060A24;
+    font-size: 18px;
+}
+
+footer a:hover {
+    color: #00F3BB;
+}
+
 @media screen and (max-width: 768px) {
     header {
-        height: 44px;
-        padding: 0 6% 0 5%;
+        height: auto;
+        padding: 0;
+        width: 100%;
+        display: inline-block;
     }
 
     header img {
         height: 24px;
         width: 24px;
+        position: relative;
+        top: 10px;
+        left: 16px;
     }
 
+    .barra {
+        display: none;
+    }
 
+    .burgermenu {
+        display: contents;
+        position: relative; 
+        min-height: 18px;
+        width: 100%;
+    }
+
+    .burgermenu input[type="checkbox"], .burgermenu .fa-bars, .burgermenu .fa-times {
+        position: absolute;
+        right: 19px;
+        top: 12px;
+        width: 18px;
+        height: 18px;  
+    }
+
+    .burgermenu .fa-bars, .burgermenu .fa-times {
+        font-size: 18px;
+        pointer-events: none;
+    }
+
+    .burgermenu input[type="checkbox"] {
+        opacity: 0; 
+    }
+    
+    .burgermenu nav {
+        display: table-column;
+        transition: all 0.3s ease-out;
+        transform: translateX(100vw);
+    }
+    
+    .burgermenu input:checked ~ nav {
+        display: flex;
+        width: 100%;
+        background-color: #0000EC;
+        margin-top: 14px;
+        height: 224px;
+        transform: translateX(0);
+    }
+
+    .burgermenu ul {
+        display: flex;
+        flex-direction: column;
+        padding: 16px 16px 24px;
+        justify-content: space-between;
+    }
+
+    .burgermenu a {
+        color: white;
+        text-decoration: none;
+        font-family: 'IBM Plex Mono', monospace;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: 0;
+    }
+
+    .burgermenu a:hover {
+        color: #00F3BB;
+        font-weight: 500;
+        text-decoration: line-through;
+    }
+    
+    .burgermenu a:active {
+        color: #060A2456;
+        font-weight: 400;
+        text-decoration: line-through;
+    }
+    
+    .burgermenu input:checked ~ .fa-bars {
+        display: none;
+    }
+    
+    .burgermenu input:not(:checked) ~ .fa-times {
+        display: none;
+    }
 
     .titulo {
         padding: 29px 16px 24px;
@@ -301,10 +411,6 @@ footer div {
         font-size: 36px;
         line-height: 42px;
         padding-right: 30px;
-    }
-
-    .punto {
-        color: #060A24;
     }
 
     .titulo .desktop {
@@ -321,7 +427,7 @@ footer div {
         padding: 16px 0 36px;
     }
 
-    .titulo button {
+    .titulo .conoce {
         height: 48px;
         width: -webkit-fill-available;
         margin: 0;
@@ -330,14 +436,16 @@ footer div {
         align-items: center;
     }
 
-    .titulo button a {
+    .titulo .conoce a {
         font-size: 16px;
         line-height: 22px;
     }
 
     .episodios {
-        clip-path: polygon(0 3%, 100% 0, 100% 85%, 0% 100%);
+        clip-path: polygon(0 2.5%, 100% 0, 100% 97.5%, 0% 100%);
         padding: 54px 11px;
+        height: 1203.5px;
+        margin-bottom: 20px;
     }
 
     h2 {
@@ -350,7 +458,120 @@ footer div {
         padding-left: 5px;
     }
 
+    .episodios div {
+        margin-bottom: 0;
+        flex-direction: column;
+    }
 
+    .episodios div iframe {
+        width: auto;
+        margin-bottom: 11px;
+    }
 
+    .nosotros {
+        padding: 0;
+        margin: -110px 0 0;
+        flex-direction: column;
+    }
 
+    .nosotros .imagen {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 27px;
+    }
+
+    .nosotros img { 
+        width: 320px;
+        padding: 0%;
+        top: 15px;
+    }
+
+    .nosotros .texto {
+        width: 100%;
+        padding: 16px;
+        margin: 0;
+    }
+
+    .nosotros h2 {
+        padding-bottom: 8px;
+    }
+
+    .nosotros p {
+        font-size: 14px;
+        line-height: 22px;
+        padding-bottom: 14px;
+    }
+
+    .entrevistas h2 {
+        margin: 0;
+        padding: 24px 16px 14px;
+    }
+
+    .entrevistas img {
+        margin: -3px 0;
+        width: 100%;
+    }
+
+    .topicos {
+        padding: 48px 16px 0px;
+    }
+
+    .topicos h2 {
+        margin-bottom: 37px;
+    }
+
+    .topicos .container {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .container div {
+        padding-bottom: 36px;
+    }
+    
+    .topicos img {
+        margin: 0;
+    }
+
+    .topicos h3 {
+        margin: 16px 0;
+    }
+
+    .novedades {
+        clip-path: polygon(0 9%, 100% 0%, 100% 100%, 0% 100%);
+        padding: 64px 16px 67px;
+        height: auto;
+    }
+
+    .novedades h2 {
+        text-align: center;
+    }
+
+    .novedades .escucha {
+        width: 100%;
+        height: 48px;
+    }    
+
+    .novedades .escucha a {
+        font-size: 16px;
+    }
+
+    footer {
+        padding: 24px 42px 31px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .copyright {
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 22px;
+        padding-bottom: 16px
+    }
 }

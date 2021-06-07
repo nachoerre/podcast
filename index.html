@@ -7,13 +7,12 @@
     <title>landingUI_desktop_mobile_kit</title>
     <link rel="stylesheet" href="./styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/90527ffa9e.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
         <img src="assets/logo.svg" alt="logo bd">
-        <nav>
+        <nav class="barra">
             <ul class="navegation">
                 <li><a href="#episodios">EPISODIOS</a></li>
                 <li><a href="#nosotros">NOSOTROS</a></li>
@@ -21,13 +20,26 @@
                 <li><a href="#topicos">TÓPICOS</a></li>
             </ul>
         </nav>
+        <div class="burgermenu">
+            <input type="checkbox">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times"></i>
+            <nav>
+                <ul>
+                    <li><a href="#episodios">EPISODIOS</a></li>
+                    <li><a href="#nosotros">NOSOTROS</a></li>
+                    <li><a href="#entrevistas">ENTREVISTAS</a></li>
+                    <li><a href="#topicos">TÓPICOS</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <main>
         <div class="titulo">
             <h1>Hello <span style="text-decoration: line-through;">world</span> pale blue dot<span class="punto">.</span></h1>
             <p class="desktop">El portal de podcasts que explora el mundo de la programación y la tecnología. Nuevos episodios, todos los jueves cada 15 días.</p>
             <p class="mobil">Un podcast que explora el mundo de la programación. Nuevos episodios, todos los jueves cada 15 días.</p>
-            <button><a href="#nosotros">CONOCÉ MÁS</a></button>
+            <div class="conoce"><a href="#nosotros">CONOCÉ MÁS</a></div>
         </div>
         <section class="episodios" id="episodios">
                 <h2 style="color: white;">Episodios</h2>
@@ -53,12 +65,12 @@
         <section class="entrevistas" id="entrevistas">
             <h2>Invitadas/os estelares</h2>
             <div>
-                <img src="./assets/grace-hopper.png" alt="Grace Hopper" width="33.3%">
-                <img src="./assets/Katie-Bouman.png" alt="Katie Bouman" width="33.3%">
-                <img src="./assets/Margaret_Hamilton.png" alt="Margaret Hamilton" width="33.3%">
-                <img src="./assets/An E.R.A.Univac 1103 computer in the 1950s.png" alt="An E.R.A.Univac 1103 computer in the 1950s" width="33.3%">
-                <img src="./assets/Computer operators with an Eniac — the world’s first programmable general-purpose computer.png" alt="Computer operators with an Eniac" width="33.3%">
-                <img src="./assets/susan-kare.png" alt="Susan Kare" width="33.3%">
+                <img src="./assets/grace-hopper.png" alt="Grace Hopper" >
+                <img src="./assets/Katie-Bouman.png" alt="Katie Bouman">
+                <img src="./assets/Margaret_Hamilton.png" alt="Margaret Hamilton">
+                <img src="./assets/An_E.R.A.Univac_1103_computer_in_the_1950s.png" alt="An E.R.A.Univac 1103 computer in the 1950s">
+                <img src="./assets/Computer_operators_with_an_Eniac_the_worlds_first_programmable_general_purpose_computer.png" alt="Computer operators with an Eniac">
+                <img src="./assets/susan-kare.png" alt="Susan Kare">
             </div>  
         </section>
         <section class="topicos" id="topicos">
@@ -84,17 +96,17 @@
         </section>
         <section class="novedades">
             <h2>¿Querés las últimas novedades?</h2>
-            <button><a href="#episodios">ESCUCHÁ LOS EPISODIOS</a></button>
+            <div class="escucha"><a href="#episodios">ESCUCHÁ LOS EPISODIOS</a></div>
         </section>
     </main>
     <footer>
         <p class="copyright">© 2019— Hello blue pale dot </p>
         <div>
-            <i class="fab fa-spotify"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-telegram"></i>
+            <a target="_blank" href="https://www.spotify.com"><i class="fab fa-spotify"></i></a>
+            <a target="_blank" href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+            <a target="_blank" href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a target="_blank" href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+            <a target="_blank" href="https://web.telegram.org"><i class="fab fa-telegram"></i></a>
         </div>
     </footer>
 </body>
